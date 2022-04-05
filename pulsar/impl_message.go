@@ -41,14 +41,14 @@ var latestMessageID = messageID{
 	ledgerID:     math.MaxInt64,
 	entryID:      math.MaxInt64,
 	batchIdx:     -1,
-	partitionIdx: -1,
+	partitionIdx: 0,
 }
 
 var earliestMessageID = messageID{
 	ledgerID:     -1,
 	entryID:      -1,
 	batchIdx:     -1,
-	partitionIdx: -1,
+	partitionIdx: 0,
 }
 
 type trackingMessageID struct {
