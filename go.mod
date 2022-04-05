@@ -31,6 +31,5 @@ require (
 )
 
 replace (
-	github.com/apache/pulsar-client-go => ./
 	github.com/apache/pulsar-client-go/oauth2 => ./oauth2
 )
