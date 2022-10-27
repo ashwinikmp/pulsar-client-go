@@ -132,6 +132,10 @@ type ConsumerOptions struct {
 	// Default is false
 	RetryEnable bool
 
+	// DisableRetrySubscription determines whether to automatically subscribe to retry letter topic.
+	// Default is false
+	DisableRetrySubscription bool
+
 	// MessageChannel sets a `MessageChannel` for the consumer
 	// When a message is received, it will be pushed to the channel for consumption
 	MessageChannel chan ConsumerMessage

@@ -131,11 +131,13 @@ func newConsumer(client *client, options ConsumerOptions) (Consumer, error) {
 				options.DLQ.RetryLetterTopic = retryTopic
 			}
 		}
-		if options.Topic != "" && len(options.Topics) == 0 {
-			options.Topics = []string{options.Topic, options.DLQ.RetryLetterTopic}
-			options.Topic = ""
-		} else if options.Topic == "" && len(options.Topics) > 0 {
-			options.Topics = append(options.Topics, options.DLQ.RetryLetterTopic)
+		if !options.DisableRetrySubscription {
+			if options.Topic != "" && len(options.Topics) == 0 {
+				options.Topics = []string{options.Topic, options.DLQ.RetryLetterTopic}
+				options.Topic = ""
+			} else if options.Topic == "" && len(options.Topics) > 0 {
+				options.Topics = append(options.Topics, options.DLQ.RetryLetterTopic)
+			}
 		}
 	}
 
