@@ -518,6 +518,7 @@ func (c *consumer) ReconsumeLater(msg Message, delay time.Duration) {
 				OrderingKey:  msg.OrderingKey(),
 				Properties:   props,
 				DeliverAfter: delay,
+				EventTime:    msg.EventTime(),
 			},
 		}
 	}
